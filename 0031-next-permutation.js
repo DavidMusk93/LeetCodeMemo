@@ -1,3 +1,3 @@
-var nextPermutation = function(nums) {
+var nextPermutation = function (nums) {
 
 };

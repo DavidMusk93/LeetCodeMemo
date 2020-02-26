@@ -1,4 +1,4 @@
-let tree = require('./0101-symmetric-tree')
+let tree = require('./0101-symmetric-tree');
 
 function LocalMaximum(v) {
   this.v = v
@@ -6,7 +6,7 @@ function LocalMaximum(v) {
 
 LocalMaximum.prototype.update = function (root) {
   this.v = root.val
-}
+};
 
 function mostLeftNode(root) {
   while (root.left) {
@@ -25,20 +25,20 @@ let is_valid_BST_ = function (root, max) {
   if (root.val <= max.v) {
     return false
   }
-  max.update(root)
+  max.update(root);
   if (!is_valid_BST_(root.right, max)) {
     return false
   }
   return true
-}
+};
 
 let isValidBST = function (root) {
   if (!root)
-    return true
-  let mostLeft = mostLeftNode(root)
-  let max = new LocalMaximum(mostLeft.val - 1)
+    return true;
+  let mostLeft = mostLeftNode(root);
+  let max = new LocalMaximum(mostLeft.val - 1);
   return is_valid_BST_(root, max)
 };
 
 //console.log(isValidBST(tree.createTree([2, 1, 3])))
-console.log(isValidBST(tree.createTree([3, 1, 5, 0, 2, 4, 6, null, null, null, 3])))
+console.log(isValidBST(tree.createTree([3, 1, 5, 0, 2, 4, 6, null, null, null, 3])));

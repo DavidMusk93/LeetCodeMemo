@@ -1,27 +1,27 @@
 function TreeNode(val) {
-  this.val = val
+  this.val = val;
   this.left = this.right = null
 }
 
 TreeNode.prototype.create = function (a, i) {
-  i = (i << 1) + 1
+  i = (i << 1) + 1;
   if (i < a.length) {
-    this.left = a[i] === null ? null : new TreeNode(a[i])
+    this.left = a[i] === null ? null : new TreeNode(a[i]);
     if (this.left)
       this.left.create(a, i)
   }
   if (++i < a.length) {
-    this.right = a[i] === null ? null : new TreeNode(a[i])
+    this.right = a[i] === null ? null : new TreeNode(a[i]);
     if (this.right)
       this.right.create(a, i)
   }
-}
+};
 
 function createTree(a) {
   if (!a.length)
-    return null
-  let root = new TreeNode(a[0])
-  root.create(a, 0)
+    return null;
+  let root = new TreeNode(a[0]);
+  root.create(a, 0);
   return root
 }
 
@@ -32,11 +32,11 @@ let is_symmetric_ = function (r1, r2) {
     return false
   }
   return is_symmetric_(r1.left, r2.right) && is_symmetric_(r1.right, r2.left)
-}
+};
 
 var isSymmetric = function (root) {
   if (!root)
-    return true
+    return true;
   return is_symmetric_(root.left, root.right)
 };
 
@@ -46,4 +46,4 @@ var isSymmetric = function (root) {
 module.exports = {
   TreeNode,
   createTree
-}
+};
