@@ -1,6 +1,6 @@
 let next_larger_ = function (head, a) {
   if (head.next === null) {
-    a.push(0)
+    a.push(0);
     return head.val
   }
   let max = next_larger_(head.next, a);
@@ -13,7 +13,7 @@ let next_larger_ = function (head, a) {
     let t;
     for (let k = a.length - 1; k > -1; --k) {
       if (a[k] > i) {
-        t = a[k]
+        t = a[k];
         break
       }
     }
