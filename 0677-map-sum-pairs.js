@@ -27,20 +27,39 @@ MapSum.prototype.insert = function (key, val) {
     if (i === 0) {
     } else if (k[i] === undefined) {
       if (key[i] === undefined) {
+        /* Case 1:
+         * @KEY $$$$
+         * @K   $$$$
+         */
         node.val = val
       } else {
+        /* Case 2:
+         * @KEY $$$$####
+         * @K   $$$$
+         */
         node.insert(key.substring(i), val)
       }
       return
     } else {
       if (key[i] === undefined) {
+        /* Case 3:
+         * @KEY $$$$
+         * @K   $$$$####
+         */
         let t = new MapSum(node.val);
         t.children = node.children;
         node.children = {};
         node.children[k.substring(i)] = t;
         node.val = val
       } else {
+        /* Case 4:
+         * @KEY $$$$##
+         * @K   $$$$###
+         */
+        let children = node.children
+        node.children = {}
         node.insert(k.substring(i), node.val);
+        node.children[k.substring(i)].children = children
         node.insert(key.substring(i), val);
         node.val = 0
       }
@@ -49,6 +68,10 @@ MapSum.prototype.insert = function (key, val) {
       return
     }
   }
+  /* Case 0:
+   * @KEY $$$$
+   * @K   EMPTY
+   */
   this.children[key] = new MapSum(val)
 };
 
