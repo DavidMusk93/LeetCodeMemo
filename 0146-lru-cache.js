@@ -1,6 +1,6 @@
 function Node(k, v) {
-  this.k = k
-  this.v = v
+  this.k = k;
+  this.v = v;
   this.count = 1
 }
 
@@ -14,8 +14,8 @@ function Node(k, v) {
  * @param {number} capacity
  */
 let LRUCache = function (capacity) {
-  this.capacity = capacity
-  this.data = {} // Object is better than Array
+  this.capacity = capacity;
+  this.data = {}; // Object is better than Array
   this.least_queue = []
   // this.offset = 0
   // this.cache = null
@@ -26,10 +26,10 @@ let LRUCache = function (capacity) {
  * @return {number}
  */
 LRUCache.prototype.get = function (key) {
-  let node = this.data[key]
+  let node = this.data[key];
   if (node !== undefined) {
-    node.count++
-    this.least_queue.push(node)
+    node.count++;
+    this.least_queue.push(node);
     return node.v
   }
   return -1
@@ -41,9 +41,9 @@ LRUCache.prototype.get = function (key) {
  * @return {void}
  */
 LRUCache.prototype.put = function (key, value) {
-  let node = this.data[key]
+  let node = this.data[key];
   if (node !== undefined) {
-    node.v = value
+    node.v = value;
     node.count++
   } else {
     if (this.capacity && this.capacity--) {

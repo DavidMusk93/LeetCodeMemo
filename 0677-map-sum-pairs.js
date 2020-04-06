@@ -56,10 +56,10 @@ MapSum.prototype.insert = function (key, val) {
          * @KEY $$$$##
          * @K   $$$$###
          */
-        let children = node.children
-        node.children = {}
+        let children = node.children;
+        node.children = {};
         node.insert(k.substring(i), node.val);
-        node.children[k.substring(i)].children = children
+        node.children[k.substring(i)].children = children;
         node.insert(key.substring(i), val);
         node.val = 0
       }
